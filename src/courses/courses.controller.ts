@@ -1,6 +1,8 @@
 import { Body, Controller, Delete, Get, HttpCode, Param, Post, Put, Res } from '@nestjs/common';
 import { HTTP_CODE_METADATA } from '@nestjs/common/constants';
 import { CoursesService } from './courses.service';
+import { CreateCourseDTO } from './dto/create-course.dto';
+import { UpdateCourseDTO } from './dto/update-course-dto';
 
 @Controller('courses')
 export class CoursesController {
@@ -18,14 +20,14 @@ export class CoursesController {
     }
 
     @Post()
-    create(@Body() body){
-        return this.coruseService.create(body)
+    create(@Body() createCourseDTO:CreateCourseDTO){
+        return this.coruseService.create(createCourseDTO)
     }
 
 
     @Put(':id')
-    update(@Param('id') id:number, @Body() body){
-        return this.coruseService.update(+id, body)
+    update(@Param('id') id:number, @Body() updateCourseDTO: UpdateCourseDTO){
+        return this.coruseService.update(+id, updateCourseDTO)
     }
 
     @HttpCode(204)
