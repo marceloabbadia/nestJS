@@ -4,14 +4,7 @@ import { Course } from './courses.entity';
 @Injectable()
 export class CoursesService {
 
-    private courses :Course[] =[
-        {
-            id:1,
-            name: "NestJS",
-            description:"Curso sobre fundamentos do NestJS",
-            tags:['NodeJs', 'NestJS', 'JavaScript','TypesCript']
-        }
-    ]
+    private courses :Course[] =[]
 
 
     findAll(){
