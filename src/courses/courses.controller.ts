@@ -14,7 +14,7 @@ export class CoursesController {
     }
 
     @Get(':id')
-    findOne(@Param('id') id:number){
+    findOne(@Param('id') id:string){
         return this.coruseService.findOne(id)
     }
 
@@ -25,13 +25,13 @@ export class CoursesController {
 
 
     @Put(':id')
-    update(@Param('id') id:number, @Body() updateCourseDTO: UpdateCourseDTO){
+    update(@Param('id') id:string, @Body() updateCourseDTO: UpdateCourseDTO){
         return this.coruseService.update(id, updateCourseDTO)
     }
 
     @HttpCode(204)
     @Delete(':id')
-    remove(@Param('id') id:number,){
+    remove(@Param('id') id:string,){
         return this.coruseService.remove(id)
     }
     
